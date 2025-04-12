@@ -44,7 +44,7 @@ const GenerateRelatorioToPdfService = async(req: Request, res: Response) => {
       const pdfBytes = await novoPdf.save();
       const outputPath = path.join(outputDir, `${boleto.id}.pdf`);
 
-      console.log(`Salvando página do boleto ID ${boleto.id} em: ${outputPath}`);
+      console.log(`Saving page for boleto ID ${boleto.id} in: ${outputPath}`);
       fs.writeFileSync(outputPath, pdfBytes);
     }
 
