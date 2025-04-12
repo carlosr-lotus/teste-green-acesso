@@ -8,10 +8,6 @@ const PORT = 3000;
 
 app.use(routes);
 
-// app.get('/', (req, res) => {
-//   res.status(200).send('Hello World in Green Acesso!');
-// });
-
 async function addBaseLotes() {
   const lotesExistentes = await Lotes.count();
 
@@ -42,19 +38,3 @@ app.listen(PORT, async() => {
 
   console.log(`Server running (port: ${PORT})`);
 });
-// CREATE TABLE lotes (
-// 	id INT NOT NULL ...,
-// 	nome VARCHAR(100),
-// 	ativo BOOLEAN,
-// 	criado_em TIMESTAMP ...
-// );
-
-// CREATE TABLE boletos (
-// 	id INT NOT NULL ...,
-// 	nome_sacado VARCHAR(255),
-// 	id_lote INT NOT NULL // FOREIGN KEY com a tabela lotes,
-// 	valor DECIMAL,
-// 	linha_digitavel VARCHAR(255)
-// 	ativo BOOLEAN,
-// 	criado_em TIMESTAMP...
-// );
