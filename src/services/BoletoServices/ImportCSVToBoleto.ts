@@ -15,6 +15,10 @@ const ImportCsvToBoleto = async(req: Request, res: Response) => {
     return res.status(400).json({ message: 'No file found.' });
   }
 
+  if (req.file.mimetype !== 'text/csv' || !req.file.originalname.endsWith('.csv')) {
+    return res.status(400).json({ message: 'File is not a valid CSV.' });
+  }
+
   const filePath = path.resolve(req.file.path);
   const results: any[] = [];
 

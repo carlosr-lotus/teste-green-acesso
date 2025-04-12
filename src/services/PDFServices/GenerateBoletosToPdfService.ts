@@ -10,6 +10,10 @@ const GenerateRelatorioToPdfService = async(req: Request, res: Response) => {
       return res.status(400).json({ message: 'Error: No PDF file was detect.' });
     }
 
+    if (!req.file.originalname.endsWith('.pdf')) {
+      return res.status(400).json({ message: 'File is not a valid pdf.' });
+    }
+
     const pdfBuffer = fs.readFileSync(req.file.path);
     const pdfDoc = await PDFDocument.load(pdfBuffer);
 
